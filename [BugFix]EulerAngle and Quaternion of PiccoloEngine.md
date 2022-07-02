@@ -56,7 +56,7 @@ $\left\{\begin{array}{lc}\color{pink}\phi(Roll)&\Rightarrow&\color{green}R_y(\be
 
 现在在[editor_ui](https://github.com/BoomingTech/Piccolo/blob/64c422eff6cba7af7292f567f6bdef3d83d1e55b/engine/source/editor/source/editor_ui.cpp#L84-L115)中修改`degrees_val`，将“四元数—欧拉角”对应关系变成`坐标系相关`的：
 
-$\left\{\begin{array}{lc}\color{pink}\phi(Roll)&\Rightarrow&\color{red}R_x(\alpha)\\\\\color{lime}\theta(Pitch)&\Rightarrow&\color{green}R_y(\beta)\\\\\color{teal}\Psi(Yaw)&\Rightarrow&\color{blue}R_z(\gamma)\end{array}\right.\Rightarrow\left\{\begin{array}{lc}\color{pink}\phi(Roll)&\Rightarrow&\color{green}R_y(\beta)\\\\\color{lime}\theta(Pitch)&\Rightarrow&\color{red}R_x(\alpha)\\\\\color{teal}\Psi(Yaw)&\Rightarrow&\color{blue}R_z(\gamma)\end{array}\right.$，也就是交换`x`和`y`，这样就排除了`degrees_val`的问题。
+$\left\{\begin{array}{lc}\color{pink}\phi(Roll)&\Rightarrow&\color{red}R_x(\alpha)\\\\\color{lime}\theta(Pitch)&\Rightarrow&\color{green}R_y(\beta)\\\\\color{teal}\Psi(Yaw)&\Rightarrow&\color{blue}R_z(\gamma)\end{array}\right.$ $\Rightarrow$ $\left\{\begin{array}{lc}\color{pink}\phi(Roll)&\Rightarrow&\color{green}R_y(\beta)\\\\\color{lime}\theta(Pitch)&\Rightarrow&\color{red}R_x(\alpha)\\\\\color{teal}\Psi(Yaw)&\Rightarrow&\color{blue}R_z(\gamma)\end{array}\right.$，也就是交换`x`和`y`，这样就排除了`degrees_val`的问题。
 
 这时需要一并交换下方“欧拉角 → 四元数”代码片段(L92-L115)三角函数里的`x`和`y`，否则两者数值会不匹配
 
